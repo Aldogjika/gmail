@@ -14,8 +14,15 @@ import IconButton from "@material-ui/core/IconButton";
 import PersonIcon from "@material-ui/icons/Person";
 import DuoIcon from "@material-ui/icons/Duo";
 import PhoneIcon from "@material-ui/icons/Phone";
+import { useHistory } from "react-router-dom";
 
 function Sidebar() {
+  const history = useHistory();
+
+  function goToInbox() {
+    history.push("/");
+  }
+
   return (
     <div className="sidebar">
       <Button
@@ -31,6 +38,7 @@ function Sidebar() {
         title="Inbox"
         number={54}
         selected={true}
+        clickOption={goToInbox}
       />
       <SidebarOption Icon={StarIcon} title="Starred" number={54} />
       <SidebarOption Icon={AccessTimeIcon} title="Snoozed" number={54} />
